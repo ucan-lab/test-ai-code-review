@@ -1,0 +1,62 @@
+[config]
+model = "o4-mini"
+
+[pr_description]
+enabled = true
+publish_labels = false
+enable_pr_type = false
+prompt_name = "default"
+extra_instructions = """
+日本語で回答してください
+"""
+
+[pr_reviewer]
+enabled = true
+enable_review_labels_effort = false
+require_tests_review = false
+require_score_review = false # PRにスコアを付ける機能
+extra_instructions = """
+日本語で以下の点を重点的にレビューしてください：
+- Nuxt3のベストプラクティスに沿っているか
+- Vueコンポーネントが適切に分離されているか
+- Composition APIの適切な使用
+- 型定義(TypeScript)が明確か
+"""
+
+[pr_code_suggestions]
+enabled = true
+focus_only_on_problems = false
+num_code_suggestions = 6 # 改善提案は3件まで
+extra_instructions = """
+日本語で以下の点を重点的にレビューしてください：
+- Nuxt3のベストプラクティスに沿っているか
+- Vueコンポーネントが適切に分離されているか
+- Composition APIの適切な使用
+- 型定義(TypeScript)が明確か
+"""
+
+[github_app]
+pr_commands = [
+  "/describe",
+  "/review",
+  "/improve"
+]
+
+[file_filters]
+# PR内で以下のファイルタイプに優先的に反応
+included = [
+  "**/*.vue",
+  "**/*.ts",
+  "**/*.js",
+  "**/*.json",
+  "**/*.yaml"
+]
+
+excluded = [
+  "src/dist/**",
+  "src/.output/**",
+  "src/node_modules/**",
+  "src/.nuxt/**",
+  "src/.vercel/**",
+  "src/.vscode/**"
+]
