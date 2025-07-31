@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gray-50 text-gray-900;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold;
+}
+
+input, textarea, select {
+  @apply rounded-md border-gray-300 shadow-sm;
+}
+
+button {
+  @apply transition-colors duration-200;
+}
